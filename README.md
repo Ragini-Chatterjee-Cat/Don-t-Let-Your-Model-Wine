@@ -1,6 +1,6 @@
 Don’t Let Your Model Wine
 
-This is my mini MLOps platform for managing experiments, training ML modles, and checking if they're bein fair to different kinds of wines.
+mini MLOps platform for training ML modles, and checking if they're being fair to different kinds of wines.
 
 What This Does
 
