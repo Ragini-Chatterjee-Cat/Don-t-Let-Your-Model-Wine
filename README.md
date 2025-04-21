@@ -6,9 +6,9 @@ What This Does
 
 Trains a model to predict wine qualitty (score from 0 to 10) based on chemical properties like alcohol, acidity, etc.
 
-Packages the model, the metrics (accurracy and stuff), and the config all nice into the outputs folder
+Packages the model, the metrics and puts it into the outputs folder
 
-Checks if the model is being “fair” to low-alcohol vs high-alcohol wines. (equality matters)
+Checks if the model is being “fair” to low-alcohol vs high-alcohol wines. 
 
 Has a CLI tool (src/cli.py) that lets you run the whole thing.
 
