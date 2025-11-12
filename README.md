@@ -15,12 +15,12 @@ This project demonstrates a complete MLOps workflow for wine quality prediction:
 
 ## Features
 
-- ✅ Random Forest classifier for wine quality prediction
-- ✅ Fairness evaluation using statistical parity difference
-- ✅ Interactive Streamlit dashboard
-- ✅ CLI interface for experiment management
-- ✅ Docker support for reproducible environments
-- ✅ Model and metrics packaging for MLOps workflows
+- Random Forest classifier for wine quality prediction
+- Fairness evaluation using statistical parity difference
+- Interactive Streamlit dashboard
+- CLI interface for experiment management
+- Docker support for reproducible environments
+- Model and metrics packaging for MLOps workflows
 
 ## Installation
 
