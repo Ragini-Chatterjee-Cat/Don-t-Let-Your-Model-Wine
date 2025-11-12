@@ -5,14 +5,14 @@ from sklearn.metrics import accuracy_score, classification_report
 import pickle
 
 def train_model(data_path):
-    # Reading the data from the CSV from kaggle 
+    # Reading the data from the CSV from Kaggle
     df = pd.read_csv(data_path)
 
     # I drop the 'quality' and 'Id' columns so they don't get used as inputs
     X = df.drop(columns=['quality', 'Id'])
     y = df['quality']
 
-    # I usualy do an 80/20 split, it's a common practice  
+    # I usually do an 80/20 split, it's a common practice  
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # I'm using a RandomForestClassifier cause it's easy and performs decently well
