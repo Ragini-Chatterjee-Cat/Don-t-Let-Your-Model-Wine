@@ -7,6 +7,7 @@ A mini MLOps platform for training ML models and checking if they're being fair 
 This project demonstrates a complete MLOps workflow for wine quality prediction:
 
 - **Trains** a model to predict wine quality (score from 0 to 10) based on chemical properties like alcohol, acidity, sulfates, etc.
+- **Tracks experiments** with MLflow — logs parameters, metrics, and model artifacts automatically on every run
 - **Packages** the model and metrics into the outputs folder for version control and reproducibility
 - **Evaluates fairness** to ensure the model treats low-alcohol and high-alcohol wines equitably
 - **Provides a CLI** tool (`src/cli.py`) to orchestrate the entire pipeline
@@ -16,10 +17,11 @@ This project demonstrates a complete MLOps workflow for wine quality prediction:
 ## Features
 
 - Random Forest classifier for wine quality prediction
-- Fairness evaluation using statistical parity difference
+- MLflow experiment tracking — parameters, metrics, and model artifacts logged per run
 - Interactive Streamlit dashboard
 - CLI interface for experiment management
 - Docker support for reproducible environments
+- Fairness evaluation using statistical parity difference
 - Model and metrics packaging for MLOps workflows
 
 ## Installation
@@ -61,7 +63,18 @@ python -m src.cli run-experiment data/WineQT.csv outputs
 This will:
 - Load the wine quality dataset
 - Train a Random Forest classifier
+- Log parameters, metrics, and the model to MLflow
 - Save the model, metrics, and configuration to the `outputs/` directory
+
+### Viewing the MLflow UI
+
+After running an experiment, launch the MLflow tracking UI:
+
+```bash
+mlflow ui
+```
+
+Open `http://localhost:5000` to browse all runs, compare metrics, and download logged models.
 
 ### Checking Fairness
 
@@ -128,6 +141,7 @@ Wine-Classification/
 - Splits data into 80/20 train/test sets
 - Trains a Random Forest classifier
 - Evaluates with accuracy and classification report
+- Logs the full run to MLflow (parameters, metrics, model artifact)
 
 ### 2. Fairness Evaluation (`fairness.py`)
 
@@ -165,6 +179,7 @@ The project uses the **Wine Quality Dataset** from Kaggle, which contains:
 
 - `pandas` - Data manipulation
 - `scikit-learn` - Machine learning
+- `mlflow` - Experiment tracking
 - `click` - CLI framework
 - `streamlit` - Dashboard framework
 - `seaborn` - Visualization
@@ -184,7 +199,7 @@ See `requirements.txt` for complete list.
 - [ ] Add model explainability (SHAP values)
 - [ ] Support multiple model types
 - [ ] Add CI/CD pipeline
-- [ ] Implement experiment tracking (MLflow)
+- [ ] Add MLflow Model Registry for promoting models to staging/production
 
 ## Contributing
 
@@ -201,4 +216,4 @@ Ragini Chatterjee
 ## Acknowledgments
 
 - Dataset from Kaggle Wine Quality Dataset
-- Built with scikit-learn, Streamlit, and Docker
+- Built with scikit-learn, MLflow, Streamlit, and Docker
