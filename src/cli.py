@@ -1,5 +1,6 @@
 import click
 import pandas as pd
+import mlflow
 from .train import train_model
 from .package_results import package_experiment_results
 from .fairness import evaluate_fairness
@@ -15,9 +16,12 @@ def cli():
 @click.argument("output_dir")
 def run_experiment(data_path, output_dir):
     """
-    This command trains a model using data from data_path, 
+    This command trains a model using data from data_path,
     then saves the results (model, metrics, etc.) into output_dir.
     """
+    # Set the MLflow experiment before training
+    mlflow.set_experiment("wine-quality-classification")
+
     # Train the model
     model, metrics, y_true, y_pred = train_model(data_path)
 
